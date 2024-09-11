@@ -1,0 +1,28 @@
+<% layout("/layouts/boilerplate.ejs")%>
+<body>
+    <!-- <h3>All listings</h3> -->
+    <!-- <form action="/listing/new"method="GET">
+        <button type="submit">New Listing</button>
+    </form> -->
+    <br><br>
+    <% for(data of allData){ %>
+        <a class="card-link" href="/listing/<%=data._id %>">
+            <div class="card">
+                <div class="card-img">
+                <img src="<%=data.image %>" alt="Listing image">
+                </div>
+                <div class="card-details">
+                    <b><%=data.title %></b>
+                    <b><%=data.location %>,<%=data.country %></b>
+                   <h4> &#8377; <%=data.price.toLocaleString("en-in") %></h4> <h5>/per night</h5>
+
+                </div>
+            </div>
+        </a>
+            
+    <% } %>
+    <br><br>
+</body>
+    
+
+

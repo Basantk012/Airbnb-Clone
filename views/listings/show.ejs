@@ -1,0 +1,22 @@
+<% layout("/layouts/boilerplate.ejs") %>
+
+<div class="show-cont">
+    <div class="show-img">
+        <img src="<%= specData.image %>" alt="listing image">
+    </div>
+
+    <div class="show-details">
+        <h2><%= specData.title %></h2>
+        <p><%= specData.description %></p>
+        <p class="price">&#8377;<%= specData.price.toLocaleString('en-IN') %></p>
+        <p><%= specData.location %>, <%= specData.country %></p>
+        <div class="btn-group">
+            <form method="get" action="/listing/<%=specData._id%>/edit">
+                <button type="submit" class="btns">Edit Listing</button>
+            </form>
+            <form method="POST" action="/listing/<%= specData._id %>?_method=DELETE" onsubmit="return confirm('Are you sure you want to delete this listing?');">
+                <button type="submit" class="btns delete-btn">Delete Listing</button>
+            </form>
+        </div>
+    </div>
+</div>

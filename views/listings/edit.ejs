@@ -1,0 +1,50 @@
+<% layout("/layouts/boilerplate.ejs")%>
+
+    <div class="row">
+        <div class="col-8 offset-2">
+
+        <form method="POST" action="/listing/<%=specData._id%>?_method=PUT" onsubmit="return confirm('Are you sure you want to edit this listing?');" novalidate class="needs-validation">
+       
+            <br><br>
+            <div class="mb-1">
+                <label for="title" class="form-label" >Title</label>
+                <input type="text" name="title" placeholder="Title"  class="form-control" value="<%= specData ? specData.title : '' %>" required>
+            </div>
+            
+            <div class="mb-1">
+                <label for="description" class="form-label">Description</label>
+                <textarea required name="description" placeholder="Description" class="form-control"><%= specData ? specData.description : '' %></textarea>
+            </div>
+    
+            <div class="mb-1">
+                <label for="image" class="form-label" >Image</label>
+                <textarea name="image" placeholder="Image URL" class="form-control"><%= specData ? specData.image : '' %></textarea>
+            </div>
+            
+        <div class="row">
+            <div class="mb-1 col-md-4">
+                <label for="price" class="form-label" >Price</label>
+                <input type="text"  class="form-control" name="price" placeholder="Price" value="<%= specData ? specData.price : '' %>" required>
+            </div>
+            
+            <div class="mb-1 col-md-8">
+                <label for="location" class="form-label" >Location</label>
+                <input type="text"  class="form-control" name="location" placeholder="Location" value="<%= specData ? specData.location : '' %>" required>
+            </div>
+        </div>
+            
+            
+            <div class="b-1">
+                <label for="country" class="form-label" >Country</label>
+                <input type="text"  class="form-control" name="country" placeholder="Country" value="<%= specData ? specData.country : '' %>" required>
+            </div>
+            
+            <br>
+            <button type="submit" class="btn btn-danger add-btn">Edit Listing</button>
+            <br><br>
+        </form>
+    </div>
+    </div>
+        
+    
+
